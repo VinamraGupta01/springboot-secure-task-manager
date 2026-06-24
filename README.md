@@ -1,171 +1,348 @@
-# 🔐 Spring Boot Secure Task Manager
+<h1 align="center">🔐 Secure Task Manager</h1>
 
-A **secure, production-ready REST API** built using **Spring Boot** that demonstrates **JWT-based authentication, role-based authorization, and clean backend architecture**.
+<h3 align="center">
+Production-Style Task Management Backend built with Spring Boot & JWT Authentication
+</h3>
 
-This project is designed to reflect **real-world backend development practices** and is ideal for **portfolio, interviews, and industry readiness**.
+<p align="center">
+Manage users, authenticate securely, and organize tasks through a scalable REST API architecture powered by Spring Security and JWT.
+</p>
 
----
+<p align="center">
 
-## 📌 Overview
+<img src="https://img.shields.io/badge/Java-17-orange?style=for-the-badge&logo=openjdk">
 
-The **Spring Boot Secure Task Manager** allows users to:
+<img src="https://img.shields.io/badge/Spring%20Boot-3.x-brightgreen?style=for-the-badge&logo=springboot">
 
-* Register and authenticate securely
-* Access protected APIs using JWT tokens
-* Perform CRUD operations on tasks
-* Ensure users can only access their own data
+<img src="https://img.shields.io/badge/Spring%20Security-Secured-success?style=for-the-badge&logo=springsecurity">
 
-The application follows **layered architecture**, **SOLID principles**, and **Spring Security best practices**.
+<img src="https://img.shields.io/badge/JWT-Authentication-blue?style=for-the-badge">
 
----
+<img src="https://img.shields.io/badge/MySQL-Database-blue?style=for-the-badge&logo=mysql">
 
-## ✨ Key Features
+<img src="https://img.shields.io/badge/Maven-Build-red?style=for-the-badge&logo=apachemaven">
 
-* 🔑 JWT Authentication (Stateless Security)
-* 👤 User Registration & Login
-* 🧑 Role-Based Authorization
-* 📝 Task Management (Create, Read, Delete)
-* 🔒 User-specific data access
-* ⚠️ Global Exception Handling
-* 🧼 Clean code & modular structure
-* 🧪 Easily testable via Postman
+</p>
 
 ---
 
-## 🛠️ Tech Stack
+# 🚀 Overview
 
-| Technology      | Purpose                           |
-| --------------- | --------------------------------- |
-| Java 17         | Backend language                  |
-| Spring Boot     | Application framework             |
-| Spring Security | Authentication & Authorization    |
-| JWT             | Secure token-based authentication |
-| Spring Data JPA | Database interaction              |
-| Hibernate       | ORM                               |
-| H2 / MySQL      | Database                          |
-| Maven           | Dependency management             |
-| Postman         | API testing                       |
+Secure Task Manager is a backend-focused task management application designed using modern Spring Boot development practices.
+
+The system provides secure user authentication, authorization, task management, and role-based access control using JSON Web Tokens (JWT).
+
+This project demonstrates production-oriented backend engineering concepts commonly used in enterprise applications.
 
 ---
 
-## 📁 Project Structure
+# ✨ Key Features
 
-```
-springboot-secure-task-manager
+## 🔐 Authentication & Authorization
+
+- User Registration
+- Secure Login
+- JWT Token Generation
+- JWT Validation
+- Protected Endpoints
+- Stateless Authentication
+- Password Encryption using BCrypt
+
+---
+
+## 👤 User Management
+
+- Create User Accounts
+- User Profile Retrieval
+- Role Assignment
+- Role-Based Access Control
+- Secure User Access
+
+---
+
+## ✅ Task Management
+
+- Create Tasks
+- View Tasks
+- Update Tasks
+- Delete Tasks
+- Assign Tasks
+- Task Status Management
+
+---
+
+## 🛡️ Security Features
+
+- Spring Security Integration
+- JWT Authentication Filter
+- Secure API Access
+- Password Encryption
+- Custom UserDetailsService
+- Authentication Middleware
+- Protected Routes
+
+---
+
+# 🏗️ Project Architecture
+
+```text
+src/main/java/com/springboot_secure_task_manager
+
+├── config
+│   ├── SecurityConfig
+│   └── PasswordEncoderConfig
 │
-├── config         → Security & password configuration
-├── controller     → REST API endpoints
-├── dto            → Request / Response objects
-├── entity         → JPA entities
-├── exception      → Global exception handling
-├── repository     → Database repositories
-├── security       → JWT filters & services
-├── service        → Business logic layer
-└── resources      → Application properties
+├── controller
+│   ├── AuthController
+│   ├── UserController
+│   └── TaskController
+│
+├── dto
+│   ├── AuthRequestDto
+│   ├── AuthResponseDto
+│   ├── LoginRequest
+│   ├── UserRegisterRequest
+│   └── UserResponse
+│
+├── entity
+│   ├── UserEntity
+│   ├── TaskEntity
+│   └── Role
+│
+├── repository
+│   ├── UserRepository
+│   └── TaskRepository
+│
+├── service
+│   ├── UserService
+│   ├── UserServiceImpl
+│   ├── TaskService
+│   └── TaskServiceImpl
+│
+├── security
+│   ├── JwtAuthenticationFilter
+│   ├── JwtService
+│   └── UserDetailsServiceImpl
+│
+├── exception
+│   ├── ApiError
+│   └── GlobalExceptionHandler
+│
+└── SpringbootSecureTaskManagerApplication
 ```
 
 ---
 
-## 🔐 Security Architecture
+# 🛠️ Tech Stack
 
-* Stateless authentication using **JWT**
-* Tokens validated on every secured request
-* Passwords encrypted using **BCrypt**
-* Unauthorized access handled gracefully
+## Backend
 
----
+- Java 17
+- Spring Boot
+- Spring Security
+- Spring Data JPA
+- Hibernate
 
-## 🔄 Authentication Flow
+## Security
 
-1. User registers
-2. User logs in with credentials
-3. Server generates a **JWT token**
-4. Client sends token in `Authorization` header
-5. Token is validated before accessing secured APIs
+- JWT Authentication
+- BCrypt Password Hashing
+- UserDetailsService
 
----
+## Database
 
-## 🌐 API Endpoints
+- MySQL
 
-### 🔑 Authentication
+## Build Tool
 
-| Method | Endpoint              | Description         |
-| ------ | --------------------- | ------------------- |
-| POST   | `/api/users/register` | Register a new user |
-| POST   | `/api/auth/login`     | Authenticate user   |
+- Maven
 
-### 📝 Task Management (JWT Required)
+## Testing & Development
 
-| Method | Endpoint          | Description      |
-| ------ | ----------------- | ---------------- |
-| POST   | `/api/tasks`      | Create a task    |
-| GET    | `/api/tasks`      | Get user’s tasks |
-| DELETE | `/api/tasks/{id}` | Delete a task    |
+- Postman
+- IntelliJ IDEA
+- Git
+- GitHub
 
 ---
 
-## 🧪 Testing with Postman
+# 📦 API Modules
 
-### Authorization Header
+## Authentication APIs
 
+### Register User
+
+```http
+POST /api/auth/register
 ```
-Authorization: Bearer <JWT_TOKEN>
+
+### Login User
+
+```http
+POST /api/auth/login
 ```
 
-### Example Request Body
-
-```json
-{
-  "title": "Learn Spring Security",
-  "description": "Implement JWT authentication"
-}
-```
+Returns a JWT token upon successful authentication.
 
 ---
 
-## ▶️ How to Run Locally
+## User APIs
 
-```bash
-git clone https://github.com/VinamraGupta01/springboot-secure-task-manager.git
-cd springboot-secure-task-manager
-mvn spring-boot:run
+### Get User Details
+
+```http
+GET /api/users
 ```
 
-Application runs on:
+### Manage Users
 
-```
-http://localhost:8080
+```http
+POST /api/users
+PUT /api/users/{id}
+DELETE /api/users/{id}
 ```
 
 ---
 
-## 🚀 Future Enhancements
+## Task APIs
 
-* ✅ Update Task API
-* 📅 Task deadlines & priorities
-* 🧾 Swagger / OpenAPI documentation
-* 🐳 Docker support
-* ☁️ Deployment (AWS / Render)
+### Create Task
+
+```http
+POST /api/tasks
+```
+
+### Get Tasks
+
+```http
+GET /api/tasks
+```
+
+### Update Task
+
+```http
+PUT /api/tasks/{id}
+```
+
+### Delete Task
+
+```http
+DELETE /api/tasks/{id}
+```
 
 ---
 
-## 👨‍💻 Author
+# 🔒 Authentication Flow
 
-**Vinamra Gupta**
-🎓 BCA Student | Java Backend Developer
-💡 Focused on clean architecture & secure backend systems
-
-🔗 GitHub: [VinamraGupta01](https://github.com/VinamraGupta01)
+```text
+User Login
+     │
+     ▼
+Authentication Manager
+     │
+     ▼
+JWT Token Generated
+     │
+     ▼
+Client Stores Token
+     │
+     ▼
+Token Sent In Headers
+     │
+     ▼
+JWT Filter Validation
+     │
+     ▼
+Authorized Access
+```
 
 ---
 
-## ⭐ Why This Project?
+# 🎯 Learning Outcomes
 
-This project showcases:
+This project demonstrates:
 
-* Industry-standard Spring Boot practices
-* Secure authentication mechanisms
-* Clean and maintainable backend code
-* Interview-ready REST API design
+✅ Spring Boot Fundamentals
 
-If you like this project, ⭐ the repository
+✅ Spring Security
+
+✅ JWT Authentication
+
+✅ Role-Based Authorization
+
+✅ DTO Pattern
+
+✅ Repository Pattern
+
+✅ Service Layer Architecture
+
+✅ Exception Handling
+
+✅ REST API Development
+
+✅ Secure Backend Engineering
+
+---
+
+# 🚀 Future Enhancements
+
+- Refresh Tokens
+- Email Verification
+- Password Reset
+- User Activity Logs
+- Task Priorities
+- Task Deadlines
+- File Attachments
+- Docker Support
+- CI/CD Pipeline
+- Cloud Deployment
+
+---
+
+# 📸 Project Status
+
+✅ Functional Backend Application
+
+🚀 Actively Improved & Maintained
+
+---
+
+# 📈 Why This Project Matters
+
+This project simulates backend concepts used in real-world enterprise applications.
+
+It focuses on security, authentication, layered architecture, and API development—skills expected from backend developers and internship candidates.
+
+---
+
+# 🤝 Connect With Me
+
+## 👨‍💻 Vinamra Gupta
+
+📧 Email
+
+**vinamra.gupta.dev@gmail.com**
+
+🔗 LinkedIn
+
+**https://www.linkedin.com/in/vinamra-gupta-0aa4b4375**
+
+🔗 GitHub
+
+**https://github.com/VinamraGupta01**
+
+---
+
+# ⭐ Support
+
+If you found this project useful, consider giving it a star.
+
+It helps support future development and motivates future improvements.
+
+---
+
+<p align="center">
+
+Built with ❤️ using Java, Spring Boot, Spring Security, JWT, and MySQL
+
+</p>
